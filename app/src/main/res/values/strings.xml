@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RadioMunicipalZapala</string>
+    <string name="reproducir">Reproducir</string>
+    <string name="radio_municipal_zapala">Radio Municipal Zapala</string>
+    <string name="play_button_text">Reproducir</string>
+    <string name="pause_button_text">Pausar</string>
+    <string name="radio_title">Radio Municipal Zapala</string>
+    <string name="play_pause_description" />
+</resources>
