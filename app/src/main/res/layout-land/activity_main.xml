@@ -1,0 +1,188 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/fondo"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-23dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="294dp"
+        android:layout_height="32dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/titulo"
+        android:textAlignment="center"
+        android:textColor="#FFFFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:layout_constraintBottom_toTopOf="@+id/socialMediaLayout"
+        app:layout_constraintEnd_toEndOf="@+id/socialMediaLayout"
+        app:layout_constraintStart_toStartOf="@+id/socialMediaLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="158dp"
+        android:layout_height="63dp"
+        android:contentDescription="@string/muni_logo"
+        android:cropToPadding="false"
+        android:onClick="muniWeb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backgroundImage"
+        app:layout_constraintVertical_bias="0.899"
+        app:srcCompat="@drawable/muni_logo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/socialMediaLayout"
+        android:layout_width="268dp"
+        android:layout_height="154dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Fila superior: Facebook, WhatsApp, Instagram -->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/buttonFacebook"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/facebook"
+            android:onClick="fbClick"
+            app:layout_constraintBottom_toTopOf="@+id/icMail"
+            app:layout_constraintEnd_toStartOf="@+id/icWhatsapp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/facebook_svg" />
+
+        <!-- Fila inferior: Mail, Web, Tel -->
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icWhatsapp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/whatsapp"
+            android:onClick="wpClick"
+            app:layout_constraintBottom_toTopOf="@+id/icWeb"
+            app:layout_constraintEnd_toStartOf="@+id/buttonInstagram"
+            app:layout_constraintStart_toEndOf="@+id/buttonFacebook"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/whatsapp_svg" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/buttonInstagram"
+            android:layout_width="81dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/instagram"
+            android:onClick="igClick"
+            app:layout_constraintBottom_toTopOf="@+id/icTel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icWhatsapp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/instagram_svg" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icMail"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/mail"
+            android:onClick="emailClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/icWhatsapp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/gmail_svg" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icWeb"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/web"
+            android:onClick="wwwClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/icTel"
+            app:layout_constraintStart_toEndOf="@+id/icMail"
+            app:layout_constraintTop_toBottomOf="@+id/icWhatsapp"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/web_svg" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/icTel"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/tel"
+            android:onClick="telClick"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/icWeb"
+            app:layout_constraintTop_toBottomOf="@+id/buttonInstagram"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/tel_svg" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_layout"
+        android:layout_width="253dp"
+        android:layout_height="247dp"
+        android:layout_marginStart="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/backgroundImage"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/play_pause_description"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+            app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
+            app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
+            app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
+            tools:ignore="MissingConstraints" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:alpha="0.65"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/sound_wave_animation"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

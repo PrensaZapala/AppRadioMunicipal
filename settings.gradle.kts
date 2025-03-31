@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RadioMunicipalZapala"
+rootProject.name = "Radio Municipal Zapala"
 include(":app")
  

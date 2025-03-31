@@ -14,7 +14,7 @@ android {
         applicationId = "com.muni.radiomunicipalzapala"
         minSdk = 24
         targetSdk = 35
-        versionCode = 14
+        versionCode = 18
         versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
