@@ -5,5 +5,16 @@
     <string name="play_button_text">Reproducir</string>
     <string name="pause_button_text">Pausar</string>
     <string name="radio_title">Radio Municipal Zapala</string>
-    <string name="play_pause_description" />
+    <string name="gif">TODO</string>
+    <string name="play_pause_description">Reproducir o pausar la radio</string>
+    <string name="web">Web radio municipal zapala</string>
+    <string name="twitter">Twitter/x Radio municipal zapala</string>
+    <string name="instagram">Instagram Radio municipal zapala</string>
+    <string name="facebook">Facebook Radio municipal zapala</string>
+    <string name="muni_logo">Página web Municipalidad de Zapala</string>
+    <string name="mail">Enviar correo electrónico</string>
+    <string name="tel">Llamar a la radio</string>
+    <string name="whatsapp">Escribir un whatsapp</string>
+    <string name="fondo">fondo</string>
+    <string name="titulo">Radio Municipal Zapala</string>
 </resources>

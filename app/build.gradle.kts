@@ -1,3 +1,5 @@
+
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -5,43 +7,57 @@ plugins {
 }
 
 android {
-    namespace = "com.radiomunicipalzapala"
+    namespace = "com.muni.radiomunicipalzapala"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.radiomunicipalzapala"
+        applicationId = "com.muni.radiomunicipalzapala"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 14
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // Habilita la ofuscación y optimización
+            isMinifyEnabled = true
+            // Añade las reglas de ProGuard/R8
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // Si utilizas código nativo, genera los símbolos de depuración
+            ndk {
+                debugSymbolLevel = "FULL"  // Puede ser 'SYMBOL_TABLE' o 'FULL'
+            }
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         compose = true
     }
 
 }
 
+
+
 dependencies {
-// Core library.
+    // Core library.
+    implementation(libs.androidx.leanback)
+
+    implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.media3.exoplayer)
     //UI library
     implementation(libs.androidx.media3.ui)
@@ -49,12 +65,12 @@ dependencies {
     implementation(libs.androidx.media3.exoplayer.dash)
     //HLS support library.
     implementation(libs.androidx.media3.exoplayer.hls)
-    // For IMA support if needed
-    implementation(libs.androidx.media3.exoplayer.ima)
     // ... other dependencies
     implementation(libs.androidx.appcompat)
-
-
+    implementation(libs.glide)
+    implementation(libs.androidx.constraintlayout)
+    annotationProcessor(libs.compiler)
+    implementation(libs.lottie)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -71,3 +87,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
+
+
