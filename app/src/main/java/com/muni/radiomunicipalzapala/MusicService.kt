@@ -5,7 +5,6 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
-import android.content.Context
 import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
@@ -51,7 +50,7 @@ class MusicService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         createNotificationChannel()
         initializePlayer()
         mediaSession = MediaSession.Builder(this, player).build()
@@ -98,7 +97,7 @@ class MusicService : Service() {
                                 startForeground(
                                     NOTIFICATION_ID,
                                     createNotification(),
-                                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK
+                                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK,
                                 )
                             } else {
                                 startForeground(NOTIFICATION_ID, createNotification())

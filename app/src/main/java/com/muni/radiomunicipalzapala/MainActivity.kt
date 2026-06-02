@@ -176,15 +176,15 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
     private fun requestNotificationPermission() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+        if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) &&
 
-            ContextCompat.checkSelfPermission(
+            (ContextCompat.checkSelfPermission(
 
                 this,
 
-                Manifest.permission.POST_NOTIFICATIONS
+                Manifest.permission.POST_NOTIFICATIONS,
 
-            ) != PackageManager.PERMISSION_GRANTED
+            ) != PackageManager.PERMISSION_GRANTED)
 
         ) {
 
@@ -341,9 +341,9 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
 
 
-    fun muniWeb(v: View) = launchUrl("https://www.zapala.gob.ar")
+    fun muniWeb(@Suppress("UNUSED_PARAMETER") v: View) = launchUrl("https://www.zapala.gob.ar")
 
-    fun emailClick(view: View) = performAnimatedClick(findViewById(R.id.icMail)) {
+    fun emailClick(@Suppress("UNUSED_PARAMETER") view: View) = performAnimatedClick(findViewById(R.id.icMail)) {
 
         Intent(Intent.ACTION_SENDTO).apply {
 
@@ -353,7 +353,7 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
             putExtra(Intent.EXTRA_TEXT, "Body")
 
-        }.let { startActivity(Intent.createChooser(it, "Enviar email via")) }
+        }.also { startActivity(Intent.createChooser(it, "Enviar email via")) }
 
     }
 
