@@ -194,7 +194,7 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
                 arrayOf(Manifest.permission.POST_NOTIFICATIONS),
 
-                NOTIFICATION_PERMISSION_REQUEST_CODE
+                NOTIFICATION_PERMISSION_REQUEST_CODE,
 
             )
 
@@ -257,11 +257,14 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
             fadeInAnimation()
 
-            lottieAnimationView.postDelayed({
-                if (!lottieAnimationView.isAnimating) {
-                    lottieAnimationView.playAnimation()
-                }
-            }, ANIMATION_DELAY)
+            lottieAnimationView.postDelayed(
+                {
+                    if (!lottieAnimationView.isAnimating) {
+                        lottieAnimationView.playAnimation()
+                    }
+                },
+                ANIMATION_DELAY,
+            )
 
         } else {
 
@@ -355,42 +358,24 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
 
 
-    fun telClick(v: View) = performAnimatedClick(findViewById(R.id.icTel)) {
-
+    fun telClick(@Suppress("UNUSED_PARAMETER") v: View) = performAnimatedClick(findViewById(R.id.icTel)) {
         launchUrl("tel:2942636749")
-
     }
 
-
-
-    fun wwwClick(v: View) = performAnimatedClick(findViewById(R.id.icWeb)) {
-
+    fun wwwClick(@Suppress("UNUSED_PARAMETER") v: View) = performAnimatedClick(findViewById(R.id.icWeb)) {
         launchUrl("https://prensazapala.wixsite.com/radiomunicipalzapala")
-
     }
 
-
-
-    fun wpClick(v: View) = performAnimatedClick(findViewById(R.id.icWhatsapp)) {
-
+    fun wpClick(@Suppress("UNUSED_PARAMETER") v: View) = performAnimatedClick(findViewById(R.id.icWhatsapp)) {
         launchUrl("https://api.whatsapp.com/send?phone=+542942636749")
-
     }
 
-
-
-    fun fbClick(view: View) = performAnimatedClick(findViewById(R.id.buttonFacebook)) {
-
+    fun fbClick(@Suppress("UNUSED_PARAMETER") view: View) = performAnimatedClick(findViewById(R.id.buttonFacebook)) {
         launchUrl(getFacebookUrl())
-
     }
 
-
-
-    fun igClick(view: View) = performAnimatedClick(findViewById(R.id.buttonInstagram)) {
-
+    fun igClick(@Suppress("UNUSED_PARAMETER") view: View) = performAnimatedClick(findViewById(R.id.buttonInstagram)) {
         launchUrl("https://www.instagram.com/radio.municipal.zapala")
-
     }
 
 
@@ -419,7 +404,7 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
                 "Reproducción de Radio",
 
-                NotificationManager.IMPORTANCE_LOW
+                NotificationManager.IMPORTANCE_LOW,
 
             ).apply {
 
@@ -473,7 +458,7 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
 
             val message =
 
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if ((grantResults.isNotEmpty()) && (grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
 
                     "Notification permission granted"
 

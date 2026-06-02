@@ -5,7 +5,7 @@
 
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" tools:ignore="ForegroundServicePermission" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-feature android:name="android.software.leanback" android:required="false"/>
@@ -20,6 +20,7 @@
 
     <application
         android:enableOnBackInvokedCallback="true"
+        tools:targetApi="33"
         android:allowBackup="true"
         android:banner="@drawable/banner_image"
         android:dataExtractionRules="@xml/data_extraction_rules"

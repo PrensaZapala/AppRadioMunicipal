@@ -64,7 +64,7 @@ class MusicService : Service() {
                 startForeground(
                     NOTIFICATION_ID,
                     createNotification(),
-                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK
+                    android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK,
                 )
             } else {
                 startForeground(NOTIFICATION_ID, createNotification())
@@ -87,7 +87,8 @@ class MusicService : Service() {
             .setTrackSelector(DefaultTrackSelector(this))
             .build()
             .apply {
-                addListener(object : Player.Listener {
+                addListener(
+                    object : Player.Listener {
                     override fun onIsPlayingChanged(isPlaying: Boolean) {
                         this@MusicService.isPlaying = isPlaying
                         listeners.forEach { it.onPlaybackStateChanged(isPlaying) }
@@ -111,7 +112,6 @@ class MusicService : Service() {
                         Log.e("MusicService", "Error de ExoPlayer: ${error.message}", error)
                     }
                 })
-
                 val mediaSource = createMediaSource()
                 setMediaSource(mediaSource)
                 prepare()
@@ -217,8 +217,6 @@ class MusicService : Service() {
         player.pause()
         abandonAudioFocus()
     }
-
-    fun isPlaying(): Boolean = player.isPlaying
 
     fun addListener(listener: PlaybackStateListener) {
         listeners.add(listener)
