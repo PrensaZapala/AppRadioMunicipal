@@ -130,9 +130,10 @@
         android:id="@+id/btn_layout"
         android:layout_width="373dp"
         android:layout_height="285dp"
+        app:layout_constraintBottom_toTopOf="@+id/socialMediaLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="636dp">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <ImageButton
             android:id="@+id/btnPlay"

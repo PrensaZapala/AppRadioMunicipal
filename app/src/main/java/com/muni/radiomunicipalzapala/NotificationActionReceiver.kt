@@ -10,7 +10,7 @@ import androidx.media3.common.util.UnstableApi
 class NotificationActionReceiver : BroadcastReceiver() {
     @UnstableApi
     override fun onReceive(context: Context?, intent: Intent?) {
-        if (context == null || intent == null) {
+        if ((context == null) || (intent == null)) {
             Log.w("NotificationAction", "Context o Intent nulos")
             return
         }
