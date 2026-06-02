@@ -258,13 +258,9 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
             fadeInAnimation()
 
             lottieAnimationView.postDelayed({
-
                 if (!lottieAnimationView.isAnimating) {
-
                     lottieAnimationView.playAnimation()
-
                 }
-
             }, ANIMATION_DELAY)
 
         } else {
