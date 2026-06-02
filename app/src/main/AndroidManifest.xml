@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingLeanbackLauncher">
 
-    <!-- Permisos necesarios -->
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -12,6 +11,7 @@
     <uses-feature android:name="android.software.leanback" android:required="false"/>
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
 
+
     <supports-screens
         android:largeScreens="true"
         android:normalScreens="true"
@@ -19,6 +19,7 @@
         android:anyDensity="true"/>
 
     <application
+        android:enableOnBackInvokedCallback="true"
         android:allowBackup="true"
         android:banner="@drawable/banner_image"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -27,33 +28,29 @@
         android:label="Radio Municipal Zapala"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true"> <activity
+        android:name="com.muni.radiomunicipalzapala.MainActivity"
+        android:exported="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:launchMode="singleTask"
+        android:clearTaskOnLaunch="false">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
 
-        <!-- Actividad principal -->
-        <activity
-            android:name="com.muni.radiomunicipalzapala.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:launchMode="singleTask"
-            android:clearTaskOnLaunch="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent-filter>
+    </activity>
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <!-- Servicio de reproducción en segundo plano -->
         <service
             android:name="com.muni.radiomunicipalzapala.MusicService"
             android:foregroundServiceType="mediaPlayback"
             android:exported="false" />
 
-        <!-- Configuración del BroadcastReceiver para controlar la notificación -->
         <receiver
             android:name="com.muni.radiomunicipalzapala.NotificationActionReceiver"
             android:exported="false">

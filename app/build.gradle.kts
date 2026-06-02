@@ -1,5 +1,3 @@
-
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -14,8 +12,8 @@ android {
         applicationId = "com.muni.radiomunicipalzapala"
         minSdk = 24
         targetSdk = 35
-        versionCode = 18
-        versionName = "2.0"
+        versionCode = 23
+        versionName = "2.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,6 +22,7 @@ android {
         release {
             // Habilita la ofuscación y optimización
             isMinifyEnabled = true
+            isShrinkResources = true
             // Añade las reglas de ProGuard/R8
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -37,35 +36,29 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
         compose = true
     }
-
 }
 
-
-
 dependencies {
-    // Core library.
-    implementation(libs.androidx.leanback)
 
+
+    // Existing dependencies
+    implementation(libs.androidx.leanback)
     implementation(libs.androidx.constraintlayout.compose)
     implementation(libs.androidx.media3.exoplayer)
-    //UI library
-    implementation(libs.androidx.media3.ui)
-    //DASH support library.
+    implementation(libs.androidx.media3.session)
     implementation(libs.androidx.media3.exoplayer.dash)
-    //HLS support library.
     implementation(libs.androidx.media3.exoplayer.hls)
-    // ... other dependencies
     implementation(libs.androidx.appcompat)
     implementation(libs.glide)
     implementation(libs.androidx.constraintlayout)
@@ -79,6 +72,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.media3.ui)
+
+    // Test dependencies
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -87,5 +83,4 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }
-
 
