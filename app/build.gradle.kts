@@ -2,7 +2,6 @@
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -13,7 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.muni.radiomunicipalzapala"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 37
         versionCode = 24
         versionName = "2.6"
 

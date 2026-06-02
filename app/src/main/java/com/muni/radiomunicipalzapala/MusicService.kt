@@ -53,7 +53,6 @@ class MusicService : Service() {
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         createNotificationChannel()
         initializePlayer()
-        mediaSession = MediaSession.Builder(this, player).build()
     }
 
     @RequiresApi(Build.VERSION_CODES.Q)
@@ -111,11 +110,13 @@ class MusicService : Service() {
                     override fun onPlayerError(error: androidx.media3.common.PlaybackException) {
                         Log.e("MusicService", "Error de ExoPlayer: ${error.message}", error)
                     }
-                })
+                },
+                )
                 val mediaSource = createMediaSource()
                 setMediaSource(mediaSource)
                 prepare()
             }
+        mediaSession = MediaSession.Builder(this, player).build()
     }
 
     private fun createMediaSource(): ProgressiveMediaSource {
@@ -153,7 +154,7 @@ class MusicService : Service() {
             audioManager.requestAudioFocus(
                 audioFocusChangeListener,
                 AudioManager.STREAM_MUSIC,
-                AudioManager.AUDIOFOCUS_GAIN
+                AudioManager.AUDIOFOCUS_GAIN,
             )
         }
 

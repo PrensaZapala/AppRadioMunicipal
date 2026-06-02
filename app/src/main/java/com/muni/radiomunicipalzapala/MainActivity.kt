@@ -447,9 +447,7 @@ class MainActivity : AppCompatActivity(), MusicService.PlaybackStateListener {
         requestCode: Int,
 
         permissions: Array<out String>,
-
-        grantResults: IntArray
-
+        grantResults: IntArray,
     ) {
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
